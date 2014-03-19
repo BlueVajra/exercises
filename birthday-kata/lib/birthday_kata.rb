@@ -3,21 +3,20 @@ require 'csv'
 class BirthdayKata
   def initialize (csv_file)
     @csv_file = csv_file
-    @birthday_array = []
+    @people_array = []
     CSV.foreach(csv_file, {headers: true}) do |row|
-      @birthday_array << row
-      #@birthday_array << Person.new
+      #@birthday_array << row
+      @people_array << Person.new(row[" first_name"], row["last_name"], row[" date_of_birth"], row[" email"])
     end
   end
-  def get_names(date)
-    #@birthday_array[2]["last_name"] + "," + @birthday_array[2][" first_name"]
-    @names_array = []
-    @birthday_array.each do |row|
-      if date == row[" date_of_birth"].strip
-        @names_array << row["last_name"] + "," + row[" first_name"]
+  def match_birthday(date)
+    @its_your_birthday_array = []
+    @people_array.each do |person|
+      if date == person.date_of_birth
+        @its_your_birthday_array << person
       end
     end
-    @names_array.join
+    @its_your_birthday_array
   end
 end
 
@@ -25,9 +24,10 @@ end
 class Person
   attr_accessor :first_name, :last_name, :date_of_birth, :email
   def initialize(fn, ln, dob, email)
-    @first_name = fn
-    @last_name = ln
-    @date_of_birth = dob
-    @email = email
+    @first_name = fn.strip
+    @last_name = ln.strip
+    @date_of_birth = dob.strip
+    @email = email.strip
   end
 end
+n

@@ -1,16 +1,16 @@
 require 'birthday_kata'
 
 describe BirthdayKata do
-  it "returns a person whose birthday matches the sent date" do
+  it "returns a person's alst name whose birthday matches the sent date" do
     birthday_prog = BirthdayKata.new("employee_information.csv")
-    expected = "Gehard, Mike"
-    actual = birthday_prog.get_names("1987/05/02")
+    expected = "Gehard"
+    actual = birthday_prog.match_birthday("1987/05/02")[0].last_name
     expect(actual).to eq expected
   end
-  it "returns a person whose birthday matches the sent date" do
+  it "returns an an email of the second person whos birthday it is" do
     birthday_prog = BirthdayKata.new("employee_information.csv")
-    expected = "Durham, Kinsey"
-    actual = birthday_prog.get_names("1945/04/01")
+    expected = "bobsmith@gmail.com"
+    actual = birthday_prog.match_birthday("1945/04/01")[1].email
     expect(actual).to eq expected
   end
 end
