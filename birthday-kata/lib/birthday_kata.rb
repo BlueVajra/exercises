@@ -6,6 +6,7 @@ class BirthdayKata
     @birthday_array = []
     CSV.foreach(csv_file, {headers: true}) do |row|
       @birthday_array << row
+      #@birthday_array << Person.new
     end
   end
   def get_names(date)
@@ -18,5 +19,15 @@ class BirthdayKata
     end
     @names_array.join
   end
+end
 
+
+class Person
+  attr_accessor :first_name, :last_name, :date_of_birth, :email
+  def initialize(fn, ln, dob, email)
+    @first_name = fn
+    @last_name = ln
+    @date_of_birth = dob
+    @email = email
+  end
 end
