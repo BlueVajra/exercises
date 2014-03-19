@@ -1,4 +1,4 @@
-dThe Birthday Greetings Kata
+The Birthday Greetings Kata
 =========
 
 Problem:

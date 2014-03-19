@@ -13,6 +13,10 @@ describe BirthdayKata do
     actual = birthday_prog.match_birthday("1945/04/01")[1].email
     expect(actual).to eq expected
   end
+  it "should parse month and day from date_of_birth row" do
+
+  end
+
 end
 
 describe Person do
@@ -26,3 +30,4 @@ describe Person do
     expect(actual).to eq expected
   end
 end
+
